@@ -108,6 +108,10 @@ public class StreamPractice {
         // Sort emp by name
         List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
         System.out.println("sortByName: " + sortByName);
+
+        // Join emp name using delimiter
+        String joinEmpName = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
+        System.out.println("joinEmpName: " + joinEmpName);
     }
 }
 
