@@ -137,6 +137,10 @@ public class StreamPractice {
          // group emp by isActive
         Map<Boolean, List<Employee>> groupEmpByActive = employees.stream().collect(Collectors.groupingBy(Employee::isActive));
         System.out.println("groupEmpByActive: " + groupEmpByActive);
+
+        // group emp by age
+        Map<Integer, List<Employee>> groupEmpByAge = employees.stream().collect(Collectors.groupingBy(Employee::getAge));
+        System.out.println("groupEmpByAge: " + groupEmpByAge);
     }
 }
 
