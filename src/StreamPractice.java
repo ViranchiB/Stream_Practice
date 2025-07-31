@@ -129,6 +129,10 @@ public class StreamPractice {
         // Join emp name using delimiter
         String joinEmpName = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
         System.out.println("joinEmpName: " + joinEmpName);
+        
+        // Group by country
+        Map<String, List<Employee>> groupByCountry = employees.stream().collect(Collectors.groupingBy(Employee::getCountry));
+        System.out.println("groupByCountry: " + groupByCountry);
     }
 }
 
