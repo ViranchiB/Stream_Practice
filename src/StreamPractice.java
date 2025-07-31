@@ -108,6 +108,10 @@ public class StreamPractice {
         // Sort emp by name
         List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
         System.out.println("sortByName: " + sortByName);
+
+        // find emp with country india
+        List<Employee> empWithCountryIndia = employees.stream().filter(emp -> emp.getCountry().equals("India")).toList();
+        System.out.println("empWithCountryIndia: " + empWithCountryIndia);
     }
 }
 
