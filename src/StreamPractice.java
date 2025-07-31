@@ -92,6 +92,18 @@ public class StreamPractice {
                 new Employee(109, "Emily", 24, "Canada",  "Female", true),
                 new Employee(110, "Carlos", 33, "Brazil", "Male", false)
         );
+
+        // Convert emp name to uppercase
+        List<Employee> empList = employees.stream()
+                .map(emp -> new Employee(
+                        emp.getEmpId(),
+                        emp.getName().toUpperCase(),
+                        emp.getAge(),
+                        emp.getCountry(),
+                        emp.getGender(),
+                        emp.isActive()
+                )).toList();
+        System.out.println("Convert emp name to uppercase : " + empList);
     }
 }
 
