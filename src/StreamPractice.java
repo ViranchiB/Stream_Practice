@@ -104,6 +104,30 @@ public class StreamPractice {
                         emp.isActive()
                 )).toList();
         System.out.println("Convert emp name to uppercase : " + empList);
+
+        // 1. Find even age emp
+        List<Employee> evenAgeEmp = employees.stream().filter(emp -> emp.getAge() % 2 == 0).toList();
+        System.out.println("EvenAgeEmp: " + evenAgeEmp);
+
+        // 2. Sum age of an emp
+        int totalAgeSum = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).sum();
+        System.out.println("TotalAgeSum: " + totalAgeSum);
+
+        // 3. Max age emp
+        OptionalInt maxAgeEmp = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).max();
+        System.out.println("maxAge: " + maxAgeEmp.getAsInt());
+
+        // Sort emp by name
+        List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
+        System.out.println("sortByName: " + sortByName);
+
+        // find emp with country india
+        List<Employee> empWithCountryIndia = employees.stream().filter(emp -> emp.getCountry().equals("India")).toList();
+        System.out.println("empWithCountryIndia: " + empWithCountryIndia);
+
+        // Join emp name using delimiter
+        String joinEmpName = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
+        System.out.println("joinEmpName: " + joinEmpName);
     }
 }
 
