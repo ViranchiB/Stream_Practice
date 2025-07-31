@@ -120,6 +120,10 @@ public class StreamPractice {
         // Group by country
         Map<String, List<Employee>> groupByCountry = employees.stream().collect(Collectors.groupingBy(Employee::getCountry));
         System.out.println("groupByCountry: " + groupByCountry);
+
+         // group emp by isActive
+        Map<Boolean, List<Employee>> groupEmpByActive = employees.stream().collect(Collectors.groupingBy(Employee::isActive));
+        System.out.println("groupEmpByActive: " + groupEmpByActive);
     }
 }
 
