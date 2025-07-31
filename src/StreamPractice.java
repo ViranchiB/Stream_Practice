@@ -112,6 +112,10 @@ public class StreamPractice {
         // find emp with country india
         List<Employee> empWithCountryIndia = employees.stream().filter(emp -> emp.getCountry().equals("India")).toList();
         System.out.println("empWithCountryIndia: " + empWithCountryIndia);
+
+        // Join emp name using delimiter
+        String joinEmpName = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
+        System.out.println("joinEmpName: " + joinEmpName);
     }
 }
 
