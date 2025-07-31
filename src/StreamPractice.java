@@ -104,6 +104,10 @@ public class StreamPractice {
         // 3. Max age emp
         OptionalInt maxAgeEmp = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).max();
         System.out.println("maxAge: " + maxAgeEmp.getAsInt());
+        
+        // Sort emp by name
+        List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
+        System.out.println("sortByName: " + sortByName);
     }
 }
 
