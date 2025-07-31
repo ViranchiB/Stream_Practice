@@ -92,6 +92,18 @@ public class StreamPractice {
                 new Employee(109, "Emily", 24, "Canada",  "Female", true),
                 new Employee(110, "Carlos", 33, "Brazil", "Male", false)
         );
+
+        // 1. Find even age emp
+        List<Employee> evenAgeEmp = employees.stream().filter(emp -> emp.getAge() % 2 == 0).toList();
+        System.out.println("EvenAgeEmp: " + evenAgeEmp);
+
+        // 2. Sum age of an emp
+        int totalAgeSum = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).sum();
+        System.out.println("TotalAgeSum: " + totalAgeSum);
+
+        // 3. Max age emp
+        OptionalInt maxAgeEmp = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).max();
+        System.out.println("maxAge: " + maxAgeEmp.getAsInt());
     }
 }
 
