@@ -110,14 +110,6 @@ public class StreamPractice {
         List<Employee> evenAgeEmp = employees.stream().filter(emp -> emp.getAge() % 2 == 0).toList();
         System.out.println("EvenAgeEmp: " + evenAgeEmp);
 
-        // 2. Sum age of an emp
-        int totalAgeSum = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).sum();
-        System.out.println("TotalAgeSum: " + totalAgeSum);
-
-        // 3. Max age emp
-        OptionalInt maxAgeEmp = employees.stream().map(Employee::getAge).mapToInt(Integer::intValue).max();
-        System.out.println("maxAge: " + maxAgeEmp.getAsInt());
-
         // Sort emp by name
         List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
         System.out.println("sortByName: " + sortByName);
@@ -133,14 +125,6 @@ public class StreamPractice {
         // Group by country
         Map<String, List<Employee>> groupByCountry = employees.stream().collect(Collectors.groupingBy(Employee::getCountry));
         System.out.println("groupByCountry: " + groupByCountry);
-
-         // group emp by isActive
-        Map<Boolean, List<Employee>> groupEmpByActive = employees.stream().collect(Collectors.groupingBy(Employee::isActive));
-        System.out.println("groupEmpByActive: " + groupEmpByActive);
-
-        // group emp by age
-        Map<Integer, List<Employee>> groupEmpByAge = employees.stream().collect(Collectors.groupingBy(Employee::getAge));
-        System.out.println("groupEmpByAge: " + groupEmpByAge);
     }
 }
 
